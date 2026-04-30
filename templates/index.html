@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Finder</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">&#9835;</span>
+            <span class="logo-text">Show<span class="accent">Finder</span></span>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1 class="hero-title">Never Miss a Show<br><span class="accent">From Your Favorite Artists</span></h1>
+        <p class="hero-sub">We connect to your Spotify and surface upcoming concerts for the artists you actually listen to.</p>
+        <a href="/login" class="btn-primary btn-large">Get Started &rarr;</a>
+    </section>
+
+    <!-- STEPS -->
+    <section class="steps-section">
+        <h2 class="section-label">How It Works</h2>
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-icon">&#128279;</div>
+                <h3>Connect Spotify</h3>
+                <p>Log in with your Spotify account. We only read your listening data — nothing else.</p>
+            </div>
+
+            <div class="step-divider"></div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-icon">&#127911;</div>
+                <h3>Analyze Your Taste</h3>
+                <p>We pull your top artists based on what you've been streaming recently.</p>
+            </div>
+
+            <div class="step-divider"></div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-icon">&#128269;</div>
+                <h3>Search for Shows</h3>
+                <p>We check Ticketmaster for upcoming concerts and events for each of your artists.</p>
+            </div>
+
+            <div class="step-divider"></div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-icon">&#127903;</div>
+                <h3>Get Your Tickets</h3>
+                <p>Browse events near you and grab tickets before they sell out.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PREVIEW VISUAL -->
+    <section class="preview-section">
+        <h2 class="section-label">What You'll See</h2>
+        <div class="preview-window">
+            <div class="preview-bar">
+                <span class="preview-title">ShowFinder &mdash; Your Shows</span>
+                <div class="win-controls">
+                    <span class="win-btn win-min">&#8211;</span>
+                    <span class="win-btn win-max">&#9633;</span>
+                    <span class="win-btn win-close">&#10005;</span>
+                </div>
+            </div>
+            <div class="preview-body">
+                <div class="preview-sidebar">
+                    <p class="preview-sidebar-title">Your Top Artists</p>
+                    <ul class="artist-list">
+                        <li class="artist-item active">Arctic Monkeys</li>
+                        <li class="artist-item">Tame Impala</li>
+                        <li class="artist-item">The Strokes</li>
+                        <li class="artist-item">Radiohead</li>
+                        <li class="artist-item">Mac DeMarco</li>
+                    </ul>
+                </div>
+                <div class="preview-main">
+                    <p class="preview-artist-name">Arctic Monkeys</p>
+                    <div class="concert-cards">
+                        <div class="concert-card">
+                            <div class="concert-date">
+                                <span class="date-month">MAY</span>
+                                <span class="date-day">14</span>
+                            </div>
+                            <div class="concert-info">
+                                <p class="concert-venue">Madison Square Garden</p>
+                                <p class="concert-location">New York, NY</p>
+                            </div>
+                            <a class="concert-btn">Tickets</a>
+                        </div>
+                        <div class="concert-card">
+                            <div class="concert-date">
+                                <span class="date-month">JUN</span>
+                                <span class="date-day">02</span>
+                            </div>
+                            <div class="concert-info">
+                                <p class="concert-venue">United Center</p>
+                                <p class="concert-location">Chicago, IL</p>
+                            </div>
+                            <a class="concert-btn">Tickets</a>
+                        </div>
+                        <div class="concert-card">
+                            <div class="concert-date">
+                                <span class="date-month">JUN</span>
+                                <span class="date-day">18</span>
+                            </div>
+                            <div class="concert-info">
+                                <p class="concert-venue">The Forum</p>
+                                <p class="concert-location">Los Angeles, CA</p>
+                            </div>
+                            <a class="concert-btn">Tickets</a>
+                        </div>
+                        <div class="concert-card">
+                            <div class="concert-date">
+                                <span class="date-month">JUL</span>
+                                <span class="date-day">04</span>
+                            </div>
+                            <div class="concert-info">
+                                <p class="concert-venue">TD Garden</p>
+                                <p class="concert-location">Boston, MA</p>
+                            </div>
+                            <a class="concert-btn">Tickets</a>
+                        </div>
+                        <div class="concert-card">
+                            <div class="concert-date">
+                                <span class="date-month">JUL</span>
+                                <span class="date-day">19</span>
+                            </div>
+                            <div class="concert-info">
+                                <p class="concert-venue">Bridgestone Arena</p>
+                                <p class="concert-location">Nashville, TN</p>
+                            </div>
+                            <a class="concert-btn">Tickets</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <span class="logo-text">Show<span class="accent">Finder</span></span>
+        <p>Powered by Spotify &amp; Ticketmaster</p>
+    </footer>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>

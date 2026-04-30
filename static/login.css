@@ -1,0 +1,170 @@
+/* =====================
+   Login Page
+   ===================== */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 5%;
+}
+
+.login-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 3rem 2.75rem;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+/* Big music note icon at top */
+.login-icon {
+    font-size: 2.8rem;
+    color: var(--green);
+    margin-bottom: 1.25rem;
+    line-height: 1;
+}
+
+.login-title {
+    font-size: 1.9rem;
+    font-weight: 900;
+    margin-bottom: 0.85rem;
+}
+
+.login-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 2rem;
+}
+
+/* Spotify button */
+.btn-spotify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    background: var(--green);
+    color: #000;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 0.95rem 1.5rem;
+    border-radius: 50px;
+    transition: background 0.2s, transform 0.1s;
+    margin-bottom: 2rem;
+}
+
+.btn-spotify:hover {
+    background: #1ed760;
+    transform: translateY(-2px);
+}
+
+.spotify-logo {
+    width: 22px;
+    height: 22px;
+    fill: #000;
+    flex-shrink: 0;
+}
+
+/* Divider */
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.login-divider span {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+/* Permissions list */
+.permission-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.permission-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    padding: 0.65rem 0.9rem;
+    border-radius: 8px;
+    background: var(--surface-2);
+}
+
+.perm-icon {
+    font-size: 0.85rem;
+    font-weight: 900;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+}
+
+.permission-allow .perm-icon {
+    color: var(--green);
+}
+
+.permission-deny .perm-icon {
+    color: #888;
+}
+
+.permission-deny {
+    opacity: 0.65;
+}
+
+/* Fine print */
+.login-fine-print {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.login-fine-print a {
+    color: var(--green);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.login-fine-print a:hover {
+    color: #1ed760;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+    .login-card {
+        padding: 2.25rem 1.5rem;
+    }
+
+    .login-title {
+        font-size: 1.6rem;
+    }
+}
