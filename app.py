@@ -1,18 +1,22 @@
-from flask import Flask, render_template, redirect, request, requests, session, url_for
+from flask import Flask, render_template, redirect, request, session, url_for
+import requests
 import os
 from dotenv import load_dotenv
 
+# loads the actual .env file
 load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
+# declare variables set to saved variables in prviate .env file
 CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
 CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
 REDIRECT_URI = os.getenv("SPOTIFY_REDIRECT_URI")
 
 @app.route("/")
 def index():
+    # checks oAuth and if not truthy then route to homepage
     if session.get("access_token"):
         return redirect(url_for("artists"))
     return render_template("index.html")
@@ -34,10 +38,12 @@ def auth_spotify():
     )
     return redirect(auth_url)
 
+# oAuth setup
 # Spotify sends user back to /callback and checks oAuth
 @app.route("/callback")
 def callback():
     code = request.args.get("code")
+    # post request to spotify to authorize request
     spotify_response = requests.post("https://accounts.spotify.com/api/token", data={
         "grant_type": "authorization_code",
         "code": code,
@@ -52,3 +58,20 @@ def callback():
     session["access_token"] = access_token
     
     return redirect(url_for("artists"))
+
+# redirect to artists page
+@app.route("/artists")
+def artists():
+    # checks oAuth
+    token = session.get("access_token")
+    if not token:
+        return redirect(url_for("login"))
+    
+    # call Spotify API for top artists
+    response = requests.get("https://api.spotify.com/v1/me/top/artists", headers={
+        "Authorization": f"Bearer {token}"
+    })
+
+    top_artists = response.json()["items"]
+
+    return render_template("artists.html", artists=top_artists)
