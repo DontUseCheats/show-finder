@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Artists &mdash; ShowFinder</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/artists.css">
+</head>
+<body class="artists-page">
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="/" class="logo">
+            <span class="logo-icon">&#9835;</span>
+            <span class="logo-text">Show<span class="accent">Finder</span></span>
+        </a>
+        <div class="header-right">
+            <div class="user-info">
+                <div class="user-avatar">JK</div>
+                <span class="user-name">justinkimm</span>
+            </div>
+            <a href="/logout" class="btn-logout">Log out</a>
+        </div>
+    </header>
+
+    <!-- APP SHELL -->
+    <div class="app-shell">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <p class="sidebar-heading">Your Top Artists</p>
+            <p class="sidebar-subheading">Ranked by listening time</p>
+
+            <ul class="artist-nav">
+
+                <li class="artist-nav-item active" data-artist="Arctic Monkeys">
+                    <span class="artist-rank">#1</span>
+                    <div class="artist-avatar" style="--hue:200">AM</div>
+                    <span class="artist-nav-name">Arctic Monkeys</span>
+                    <span class="show-badge">5</span>
+                </li>
+
+                <li class="artist-nav-item" data-artist="Tame Impala">
+                    <span class="artist-rank">#2</span>
+                    <div class="artist-avatar" style="--hue:270">TI</div>
+                    <span class="artist-nav-name">Tame Impala</span>
+                    <span class="show-badge">3</span>
+                </li>
+
+                <li class="artist-nav-item" data-artist="The Strokes">
+                    <span class="artist-rank">#3</span>
+                    <div class="artist-avatar" style="--hue:10">TS</div>
+                    <span class="artist-nav-name">The Strokes</span>
+                    <span class="show-badge">2</span>
+                </li>
+
+                <li class="artist-nav-item" data-artist="Radiohead">
+                    <span class="artist-rank">#4</span>
+                    <div class="artist-avatar" style="--hue:130">RH</div>
+                    <span class="artist-nav-name">Radiohead</span>
+                    <span class="show-badge show-badge--none">0</span>
+                </li>
+
+                <li class="artist-nav-item" data-artist="Mac DeMarco">
+                    <span class="artist-rank">#5</span>
+                    <div class="artist-avatar" style="--hue:40">MD</div>
+                    <span class="artist-nav-name">Mac DeMarco</span>
+                    <span class="show-badge">1</span>
+                </li>
+
+                <li class="artist-nav-item" data-artist="Glass Animals">
+                    <span class="artist-rank">#6</span>
+                    <div class="artist-avatar" style="--hue:160">GA</div>
+                    <span class="artist-nav-name">Glass Animals</span>
+                    <span class="show-badge">4</span>
+                </li>
+
+                <li class="artist-nav-item" data-artist="Inhaler">
+                    <span class="artist-rank">#7</span>
+                    <div class="artist-avatar" style="--hue:220">IN</div>
+                    <span class="artist-nav-name">Inhaler</span>
+                    <span class="show-badge">2</span>
+                </li>
+
+                <li class="artist-nav-item" data-artist="Wet Leg">
+                    <span class="artist-rank">#8</span>
+                    <div class="artist-avatar" style="--hue:300">WL</div>
+                    <span class="artist-nav-name">Wet Leg</span>
+                    <span class="show-badge">3</span>
+                </li>
+
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- ARTIST HEADER -->
+            <div class="artist-header">
+                <div class="artist-hero-avatar" style="--hue:200">AM</div>
+                <div class="artist-hero-info">
+                    <p class="artist-hero-label">Upcoming Shows</p>
+                    <h1 class="artist-hero-name">Arctic Monkeys</h1>
+                    <p class="artist-hero-meta"><span class="accent">5 shows</span> found near you</p>
+                </div>
+            </div>
+
+            <!-- FILTER BAR -->
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label class="filter-label" for="location-input">Location</label>
+                    <div class="filter-input-wrap">
+                        <span class="filter-icon">&#128205;</span>
+                        <input class="filter-input" id="location-input" type="text" placeholder="City or ZIP code" value="New York, NY">
+                    </div>
+                </div>
+<button class="btn-search">Search</button>
+            </div>
+
+            <!-- LIST CONTROLS -->
+            <div class="list-controls">
+                <span class="list-controls-label">Sort by</span>
+                <div class="sort-pills">
+                    <button class="sort-pill sort-pill--active">&#128197; Date</button>
+                    <button class="sort-pill">&#128205; Distance &mdash; <span class="sort-pill-hint">nearest first</span></button>
+                </div>
+            </div>
+
+            <!-- CONCERT LIST -->
+            <div class="concert-list">
+
+                <div class="concert-card-full">
+                    <div class="concert-date-block">
+                        <span class="date-month">MAY</span>
+                        <span class="date-day">14</span>
+                    </div>
+                    <div class="concert-details">
+                        <p class="concert-venue-name">Madison Square Garden</p>
+                        <p class="concert-location-text">&#128205; New York, NY &mdash; 0.5 mi away</p>
+                        <p class="concert-time">Doors at 7:00 PM</p>
+                    </div>
+                    <a href="#" class="btn-tickets">Get Tickets &rarr;</a>
+                </div>
+
+                <div class="concert-card-full">
+                    <div class="concert-date-block">
+                        <span class="date-month">JUN</span>
+                        <span class="date-day">02</span>
+                    </div>
+                    <div class="concert-details">
+                        <p class="concert-venue-name">United Center</p>
+                        <p class="concert-location-text">&#128205; Chicago, IL &mdash; 790 mi away</p>
+                        <p class="concert-time">Doors at 6:30 PM</p>
+                    </div>
+                    <a href="#" class="btn-tickets">Get Tickets &rarr;</a>
+                </div>
+
+                <div class="concert-card-full">
+                    <div class="concert-date-block">
+                        <span class="date-month">JUN</span>
+                        <span class="date-day">18</span>
+                    </div>
+                    <div class="concert-details">
+                        <p class="concert-venue-name">The Forum</p>
+                        <p class="concert-location-text">&#128205; Los Angeles, CA &mdash; 2,800 mi away</p>
+                        <p class="concert-time">Doors at 7:30 PM</p>
+                    </div>
+                    <a href="#" class="btn-tickets">Get Tickets &rarr;</a>
+                </div>
+
+                <div class="concert-card-full">
+                    <div class="concert-date-block">
+                        <span class="date-month">JUL</span>
+                        <span class="date-day">04</span>
+                    </div>
+                    <div class="concert-details">
+                        <p class="concert-venue-name">TD Garden</p>
+                        <p class="concert-location-text">&#128205; Boston, MA &mdash; 215 mi away</p>
+                        <p class="concert-time">Doors at 7:00 PM</p>
+                    </div>
+                    <a href="#" class="btn-tickets">Get Tickets &rarr;</a>
+                </div>
+
+                <div class="concert-card-full">
+                    <div class="concert-date-block">
+                        <span class="date-month">JUL</span>
+                        <span class="date-day">19</span>
+                    </div>
+                    <div class="concert-details">
+                        <p class="concert-venue-name">Bridgestone Arena</p>
+                        <p class="concert-location-text">&#128205; Nashville, TN &mdash; 900 mi away</p>
+                        <p class="concert-time">Doors at 8:00 PM</p>
+                    </div>
+                    <a href="#" class="btn-tickets">Get Tickets &rarr;</a>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <span class="logo-text">Show<span class="accent">Finder</span></span>
+        <p>Powered by Spotify &amp; Ticketmaster</p>
+    </footer>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>

@@ -34,7 +34,7 @@ def auth_spotify():
     )
     return redirect(auth_url)
 
-# Spotify sends user back to /callback
+# Spotify sends user back to /callback and checks oAuth
 @app.route("/callback")
 def callback():
     code = request.args.get("code")
