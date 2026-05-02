@@ -1,3 +1,4 @@
+{% if artists %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,15 +34,12 @@
             <p class="sidebar-subheading">Ranked by listening time</p>
 
             <ul class="artist-nav">
-
                 {% for artist in artists %}
                 {% set words = artist.name.split(' ') %}
-                {% if words | length > 1 %}
-                    {% set initials = words[0][0] | upper ~ words[1][0] | upper %}
-                {% else %}
-                    {% set initials = words[0][:2] | upper %}
-                {% endif %}
-                <li class="artist-nav-item {% if loop.first %}active{% endif %}" data-artist="{{ artist.name }}">
+                {% set initials = (words[0][0] ~ words[1][0]) | upper if words | length > 1 else words[0][:2] | upper %}
+                <li class="artist-nav-item {% if loop.first %}active{% endif %}"
+                    data-artist="{{ artist.name }}"
+                    data-img="{{ artist.images[0].url if artist.images else '' }}">
                     <span class="artist-rank">#{{ loop.index }}</span>
                     {% if artist.images %}
                     <img class="artist-avatar" src="{{ artist.images[0].url }}" alt="{{ artist.name }}">
@@ -52,7 +50,6 @@
                     <span class="show-badge show-badge--none">0</span>
                 </li>
                 {% endfor %}
-
             </ul>
         </aside>
 
@@ -60,14 +57,9 @@
         <main class="main-content">
 
             <!-- ARTIST HEADER -->
-            {% if artists %}
             {% set first = artists[0] %}
             {% set words = first.name.split(' ') %}
-            {% if words | length > 1 %}
-                {% set initials = words[0][0] | upper ~ words[1][0] | upper %}
-            {% else %}
-                {% set initials = words[0][:2] | upper %}
-            {% endif %}
+            {% set initials = (words[0][0] ~ words[1][0]) | upper if words | length > 1 else words[0][:2] | upper %}
             <div class="artist-header">
                 {% if first.images %}
                 <img class="artist-hero-avatar" src="{{ first.images[0].url }}" alt="{{ first.name }}">
@@ -77,103 +69,26 @@
                 <div class="artist-hero-info">
                     <p class="artist-hero-label">Upcoming Shows</p>
                     <h1 class="artist-hero-name">{{ first.name }}</h1>
-                    <p class="artist-hero-meta"><span class="accent">Shows</span> found near you</p>
+                    <p class="artist-hero-meta"><span class="accent">Loading&hellip;</span></p>
                 </div>
             </div>
-            {% endif %}
 
-            <!-- FILTER BAR -->
-            <div class="filter-bar">
-                <div class="filter-group">
-                    <label class="filter-label" for="location-input">Location</label>
-                    <div class="filter-input-wrap">
-                        <span class="filter-icon">&#128205;</span>
-                        <input class="filter-input" id="location-input" type="text" placeholder="City or ZIP code" value="New York, NY">
-                    </div>
-                </div>
-<button class="btn-search">Search</button>
-            </div>
 
             <!-- LIST CONTROLS -->
             <div class="list-controls">
                 <span class="list-controls-label">Sort by</span>
                 <div class="sort-pills">
-                    <button class="sort-pill sort-pill--active">&#128197; Date</button>
-                    <button class="sort-pill">&#128205; Distance &mdash; <span class="sort-pill-hint">nearest first</span></button>
+                    <button class="sort-pill sort-pill--active" data-sort="date">&#128197; Date</button>
+                    <button class="sort-pill" data-sort="distance">&#128205; Distance &mdash; <span class="sort-pill-hint">nearest first</span></button>
                 </div>
             </div>
 
-            <!-- CONCERT LIST -->
-            <div class="concert-list">
-
-                <div class="concert-card-full">
-                    <div class="concert-date-block">
-                        <span class="date-month">MAY</span>
-                        <span class="date-day">14</span>
-                    </div>
-                    <div class="concert-details">
-                        <p class="concert-venue-name">Madison Square Garden</p>
-                        <p class="concert-location-text">&#128205; New York, NY &mdash; 0.5 mi away</p>
-                        <p class="concert-time">Doors at 7:00 PM</p>
-                    </div>
-                    <a href="#" class="btn-tickets">Get Tickets &rarr;</a>
-                </div>
-
-                <div class="concert-card-full">
-                    <div class="concert-date-block">
-                        <span class="date-month">JUN</span>
-                        <span class="date-day">02</span>
-                    </div>
-                    <div class="concert-details">
-                        <p class="concert-venue-name">United Center</p>
-                        <p class="concert-location-text">&#128205; Chicago, IL &mdash; 790 mi away</p>
-                        <p class="concert-time">Doors at 6:30 PM</p>
-                    </div>
-                    <a href="#" class="btn-tickets">Get Tickets &rarr;</a>
-                </div>
-
-                <div class="concert-card-full">
-                    <div class="concert-date-block">
-                        <span class="date-month">JUN</span>
-                        <span class="date-day">18</span>
-                    </div>
-                    <div class="concert-details">
-                        <p class="concert-venue-name">The Forum</p>
-                        <p class="concert-location-text">&#128205; Los Angeles, CA &mdash; 2,800 mi away</p>
-                        <p class="concert-time">Doors at 7:30 PM</p>
-                    </div>
-                    <a href="#" class="btn-tickets">Get Tickets &rarr;</a>
-                </div>
-
-                <div class="concert-card-full">
-                    <div class="concert-date-block">
-                        <span class="date-month">JUL</span>
-                        <span class="date-day">04</span>
-                    </div>
-                    <div class="concert-details">
-                        <p class="concert-venue-name">TD Garden</p>
-                        <p class="concert-location-text">&#128205; Boston, MA &mdash; 215 mi away</p>
-                        <p class="concert-time">Doors at 7:00 PM</p>
-                    </div>
-                    <a href="#" class="btn-tickets">Get Tickets &rarr;</a>
-                </div>
-
-                <div class="concert-card-full">
-                    <div class="concert-date-block">
-                        <span class="date-month">JUL</span>
-                        <span class="date-day">19</span>
-                    </div>
-                    <div class="concert-details">
-                        <p class="concert-venue-name">Bridgestone Arena</p>
-                        <p class="concert-location-text">&#128205; Nashville, TN &mdash; 900 mi away</p>
-                        <p class="concert-time">Doors at 8:00 PM</p>
-                    </div>
-                    <a href="#" class="btn-tickets">Get Tickets &rarr;</a>
-                </div>
-
+            <!-- CONCERT LIST (populated by JS) -->
+            <div class="concert-list" id="concert-list">
+                <p class="no-shows">Loading shows&hellip;</p>
             </div>
+
         </main>
-
     </div>
 
     <!-- FOOTER -->
@@ -185,3 +100,37 @@
     <script src="/static/main.js"></script>
 </body>
 </html>
+
+{% else %}
+{# ── Concert-cards fragment — returned when JS fetches /artist/<name> ── #}
+{% set months = ['', 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'] %}
+{% if events %}
+{% for event in events %}
+{% set start    = event.dates.start %}
+{% set raw_date = start.localDate if start else '' %}
+{% set parts    = raw_date.split('-') if raw_date else [] %}
+{% set mon      = months[parts[1]|int] if parts|length > 1 and parts[1] else '---' %}
+{% set day      = parts[2]|int         if parts|length > 2 and parts[2] else '--'  %}
+{% set venues   = event['_embedded'].venues if event['_embedded'] else [] %}
+{% set venue    = venues[0] if venues else {} %}
+{% set city     = venue.city.name           if venue and venue.city     else '' %}
+{% set state    = venue.state.stateCode     if venue and venue.state    else '' %}
+{% set lat      = venue.location.latitude   if venue and venue.location else '' %}
+{% set lng      = venue.location.longitude  if venue and venue.location else '' %}
+{% set location = city ~ (', ' ~ state if state else '') %}
+<div class="concert-card-full" data-date="{{ raw_date }}" data-lat="{{ lat }}" data-lng="{{ lng }}">
+    <div class="concert-date-block">
+        <span class="date-month">{{ mon }}</span>
+        <span class="date-day">{{ day }}</span>
+    </div>
+    <div class="concert-details">
+        <p class="concert-venue-name">{{ venue.name if venue and venue.name else 'TBA' }}</p>
+        <p class="concert-location-text">&#128205; {{ location or 'Location TBA' }}</p>
+    </div>
+    <a href="{{ event.url or '#' }}" target="_blank" rel="noopener" class="btn-tickets">Get Tickets &rarr;</a>
+</div>
+{% endfor %}
+{% else %}
+<p class="no-shows">No upcoming shows found for this artist.</p>
+{% endif %}
+{% endif %}
